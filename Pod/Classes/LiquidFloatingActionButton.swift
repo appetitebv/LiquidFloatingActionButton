@@ -385,7 +385,7 @@ class CircleLiquidBaseView : ActionBarBaseView {
     func updateOpen() {
         update(0.1, duration: openDuration) { cell, i, ratio in
             let posRatio = ratio > CGFloat(i) / CGFloat(self.openingCells.count) ? ratio : 0
-            let distance = (cell.frame.height * 0.5 + CGFloat(i + 1) * cell.frame.height * 1.5) * posRatio
+            let distance = (cell.frame.height * 0.5 + CGFloat(i + 1) * cell.frame.height * 1.5) * (posRatio * 0.91)
             cell.center = self.center.plus(self.differencePoint(distance))
             cell.update(ratio, open: true)
         }
@@ -393,7 +393,7 @@ class CircleLiquidBaseView : ActionBarBaseView {
     
     func updateClose() {
         update(0, duration: closeDuration) { cell, i, ratio in
-            let distance = (cell.frame.height * 0.5 + CGFloat(i + 1) * cell.frame.height * 1.5) * (1 - ratio)
+            let distance = (cell.frame.height * 0.5 + CGFloat(i + 1) * cell.frame.height * 1.5) * (1 - ratio )
             cell.center = self.center.plus(self.differencePoint(distance))
             cell.update(ratio, open: false)
         }
